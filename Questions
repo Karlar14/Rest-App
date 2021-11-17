@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+
+
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<center><font face="Arial" size="1px"><h1>Questionare</h1></font></center>
+        
+	<!-- Create Form -->
+	<form id="form">
+		<div class="form-control"></div>
+		<label for="role" id="label-role"></label>
+		<img src="/src/Question images/beach..jpeg" alt="beach">
+		</label>	
+
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+			<option value="Happiness">Happiness</option>
+			<option value="Joy">Joy</option>
+			<option value="Sadness">Sadness</option>
+			<option value="Mad">Mad</option>
+			</select>
+		</div>
+
+		<div class="form-control">
+    			<label for="role" id="label-role">
+				<center>What is your favorite Sport?</center>
+			</label>
+			
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+				<option value="Baseball">Baseball</option>
+				<option value="Basketball">Basketball</option>
+				<option value="Football">Football</option>
+				<option value="Soccer">Soccer</option>
+			</select>
+		</div>
+
+		<div class="form-control"></div>
+		<label for="role" id="label-role"></label>
+		<img src="/src/Question images/forest..jpeg" alt="Forest">
+		</label>	
+
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+			<option value="Happiness">Happiness</option>
+			<option value="Joy">Joy</option>
+			<option value="Sadness">Sadness</option>
+			<option value="Mad">Mad</option>
+			</select>
+		</div>
+
+        <div class="form-control">
+			<label for="role" id="label-role">
+			<center>What is the first thing you do in the morning?</center>
+			</label>
+			
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+				<option value="Check your phone">Check your phone</option>
+				<option value="Brush Your teeth,Use bathroom">Brush Your teeth,Use bathroom</option>
+				<option value="Make drinks/coffee">Make drinks/coffee</option>
+				<option value="Lay longer">Lay longer</option>
+			</select>
+		</div>
+
+		<div class="form-control"></div>
+		<label for="role" id="label-role"></label>
+		<img src="/src/Question images/sky..jpeg" alt="Skyline">
+		</label>	
+
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+			<option value="Happiness">Happiness</option>
+			<option value="Joy">Joy</option>
+			<option value="Sadness">Sadness</option>
+			<option value="Mad">Mad</option>
+			</select>
+		</div>
+
+        <div class="form-control">
+			<label for="role" id="label-role">
+			<center>What is your favorite flower?</center>
+			</label>
+			
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+				<option value="Roses">Roses</option>
+				<option value="Sunflowers">Sunflowers</option>
+				<option value="Daisy">Daisy</option>
+				<option value="Tulips">Tulips</option>
+			</select>
+		</div>
+
+
+		<div class="form-control"></div>
+		<label for="role" id="label-role"></label>
+		<img src="/src/Question images/snow..jpeg" alt="Snow">
+		</label>	
+
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+			<option value="Happiness">Happiness</option>
+			<option value="Joy">Joy</option>
+			<option value="Sadness">Sadness</option>
+			<option value="Mad">Mad</option>
+			</select>
+		</div>
+
+        <div class="form-control">
+			<label for="role" id="label-role">
+			<center>What is your favorite Animal?</center>
+			</label>
+			
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+				<option value="Dogs/Puppy">Dogs/Puppy</option>
+				<option value="Cats/Kittens">Cats/Kittens</option>
+				<option value="Repties">Reptiles</option>
+				<option value="Amphibians">Amphibians</option>
+			</select>
+		</div>
+
+		<div class="form-control"></div>
+		<label for="role" id="label-role"></label>
+		<img src="/src/Question images/star..jpeg" alt="Stars">
+		</label>	
+
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+			<option value="Happiness">Happiness</option>
+			<option value="Joy">Joy</option>
+			<option value="Sadness">Sadness</option>
+			<option value="Mad">Mad</option>
+			</select>
+		</div>
+
+        <div class="form-control">
+			<label for="role" id="label-role">
+			<center>What is your perfered?</center>
+			</label>
+			
+			<!-- Dropdown options -->
+			<select name="role" id="role">
+				<option value="Hot">Hot</option>
+				<option value="Cold">Cold</option>
+				<option value="Lukewarm">Lukewarm</option>
+				<option value="Cool">Cool</option>
+			</select>
+
+
+		</div>
+        <!-- multi-line text input control -->
+        <textarea name="comment" id="comment"
+        placeholder="Enter your comment here">
+    </textarea>
+<div>
+<!-- Multi-line Text Input Control -->
+<button type="submit" value="submit">
+    <center><h1 style="background-color:#C4BDAC;">SUBMIT</h1></center>
+</button>
+</div>
+</form>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
