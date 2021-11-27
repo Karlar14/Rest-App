@@ -1,13 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useRef } from 'react';
+import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'react-native';
 
 export default function App() {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 5000,
+    }).start();
+  };
+
+  const fadeOut = () => {
+    // Will change fadeAnim value to 0 in 3 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 3000
+    }).start();
+  };
 
   return (
-    <View style={styles.container}>
-     
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Animated.View style={[
+          {
+            // Bind opacity to animated value
+            opacity: fadeAnim
+          }
+        ]}>
+          <Text style={styles.baseText}>Do you need a moment?</Text>
+      </Animated.View>
+        
+        <Text style={styles.baseText}>Come on in</Text>
+        <Text style={styles.baseText}>This is...</Text>
+        <Text style={styles.titleText}>Rest</Text>
+        <Button title="Continue" onPress={fadeOut} />
+      
+    </SafeAreaView>
   );
 }
 
@@ -15,6 +44,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-
+    alignItems: "center",
+    justifyContent: "center",
   },
+  baseText: {
+    fontSize: 18,
+    padding: 5,
+  },
+  titleText: {
+    fontSize: 20,
+  }
 });
