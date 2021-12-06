@@ -1,38 +1,44 @@
 import React, { useRef } from 'react';
 import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'react-native';
 import { Video, Audio, AVPlaybackStatus } from 'expo-av';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   return (
-    <SafeAreaView style={styles.container}>
-      <Video
-        ref={video}
-        style={styles.video}
-        source={{
-          uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
-        }}
-        useNativeControls
-        resizeMode="contain"
-        isLooping
-        onPlaybackStatusUpdate={status => setStatus(() => status)}
-      />
-      <View style={styles.buttons}>
-        <Button
-          title={status.isPlaying ? 'Pause' : 'Play'}
-          onPress={() =>
-            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-          }
+    <NavigationContainer>
+      <SafeAreaView style={styles.container}>
+        <Video
+          ref={video}
+          style={styles.video}
+          source={{
+            uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          }}
+          useNativeControls
+          resizeMode="contain"
+          isLooping
+          onPlaybackStatusUpdate={status => setStatus(() => status)}
         />
-      </View>
-      
-        <Text style={styles.baseText}>Do you need a moment?</Text>
-        <Text style={styles.baseText}>Come on in</Text>
-        <Text style={styles.baseText}>This is...</Text>
-        <Text style={styles.titleText}>Rest</Text>
-        <Button title="Continue" />
-    </SafeAreaView>
+        <View style={styles.buttons}>
+          <Button
+            title={status.isPlaying ? 'Pause' : 'Play'}
+            onPress={() =>
+              status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+            }
+          />
+        </View>
+        
+          <Text style={styles.baseText}>Do you need a moment?</Text>
+          <Text style={styles.baseText}>Come on in</Text>
+          <Text style={styles.baseText}>This is...</Text>
+          <Text style={styles.titleText}>Rest</Text>
+          <Button title="Continue" />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
