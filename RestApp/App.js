@@ -3,28 +3,9 @@ import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'r
 import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 
 export default function App() {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
-  const fadeIn = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 5000,
-    }).start();
-  };
-
-  const fadeOut = () => {
-    // Will change fadeAnim value to 0 in 3 seconds
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 3000
-    }).start();
-  };
-
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   return (
-    
     <SafeAreaView style={styles.container}>
       <Video
         ref={video}
@@ -45,19 +26,12 @@ export default function App() {
           }
         />
       </View>
-      <Animated.View style={[
-          {
-            // Bind opacity to animated value
-            opacity: fadeAnim
-          }
-        ]}>
-          <Text style={styles.baseText}>Do you need a moment?</Text>
-      </Animated.View>
-        
+      
+        <Text style={styles.baseText}>Do you need a moment?</Text>
         <Text style={styles.baseText}>Come on in</Text>
         <Text style={styles.baseText}>This is...</Text>
         <Text style={styles.titleText}>Rest</Text>
-        <Button title="Continue" onPress={fadeOut} />
+        <Button title="Continue" />
     </SafeAreaView>
   );
 }
