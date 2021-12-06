@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'react-native';
+import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 
 export default function App() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -20,8 +21,30 @@ export default function App() {
     }).start();
   };
 
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
   return (
+    
     <SafeAreaView style={styles.container}>
+      <Video
+        ref={video}
+        style={styles.video}
+        source={{
+          uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+        }}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
+      <View style={styles.buttons}>
+        <Button
+          title={status.isPlaying ? 'Pause' : 'Play'}
+          onPress={() =>
+            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+          }
+        />
+      </View>
       <Animated.View style={[
           {
             // Bind opacity to animated value
@@ -35,7 +58,6 @@ export default function App() {
         <Text style={styles.baseText}>This is...</Text>
         <Text style={styles.titleText}>Rest</Text>
         <Button title="Continue" onPress={fadeOut} />
-      
     </SafeAreaView>
   );
 }
