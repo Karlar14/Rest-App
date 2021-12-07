@@ -18,31 +18,49 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function Questionnaire() {
+function Questionnaire({ navigation }) {
   return (
     <SafeAreaView style={styles.Questionnaire}>
       <Text>Questionnaire</Text>
+      <Button
+        title="Continue"
+        onPress={() => navigation.navigate('LandingPage')} />
     </SafeAreaView>
   );
 }
 
-function LandingPage() {
+function LandingPage({ navigation }) {
   return (
     <SafeAreaView style={styles.landingPage}>
       <Text>Landing Page</Text>
+      <Button
+        title="Search"
+        onPress={() => navigation.navigate('SearchPage')} />
+        <Button
+        title="Notifications"
+        onPress={() => navigation.navigate('Notifications')} />
+        <Button
+        title="Settings"
+        onPress={() => navigation.navigate('Settings')} />
     </SafeAreaView>
   );
 }
 
-function Search() {
+function SearchPage({ navigation }) {
   return (
-    <SafeAreaView style={styles.search}>
+    <SafeAreaView style={styles.searchPage}>
       <Text>Search Page</Text>
+      <Button
+        title="Video Selection"
+        onPress={() => navigation.navigate('VideoSelect')} />
+        <Button
+        title="Audio Selection"
+        onPress={() => navigation.navigate('AudioViz')} />
     </SafeAreaView>
   );
 }
 
-function Notifications() {
+function Notifications({ navigation }) {
   return (
     <SafeAreaView style={styles.notifications}>
       <Text>Notifications</Text>
@@ -50,27 +68,30 @@ function Notifications() {
   );
 }
 
-function Settings() {
+function Settings({ navigation }) {
   return (
     <SafeAreaView style={styles.Settings}>
       <Text>Settings</Text>
+      <Button
+        title="Go back"
+        onPress={() => navigation.goBack()} />
     </SafeAreaView>
   );
 }
 
-function audioVisualizer() {
+function audioVisualizer({ navigation }) {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Audio Visualizer</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
-function addVideo() {
+function VideoSelect({ navigation }) {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   return (
-    <View>
+    <SafeAreaView>
         <Video
           ref={video}
           style={styles.video}
@@ -90,7 +111,7 @@ function addVideo() {
           }
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -104,9 +125,10 @@ export default function App() {
         <Stack.Screen name="Questionnaire" component={Questionnaire} />
         <Stack.Screen name="LandingPage" component={LandingPage} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="SearchPage" component={SearchPage} />
         <Stack.Screen name="Notifications" component={Notifications} />
         <Stack.Screen name="AudioViz" component={audioVisualizer} />
+        <Stack.Screen name="VideoSelect" component={VideoSelect} />
       </Stack.Navigator>
     </NavigationContainer>
   );
