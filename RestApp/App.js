@@ -4,13 +4,44 @@ import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+/* Animations */
+
+const FadeInView = (props) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
+
+  React.useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 10000,
+      }
+    ).start();
+  }, [fadeAnim])
+
+  return (
+    <Animated.View                 // Special animatable View
+      style={{
+        ...props.style,
+        opacity: fadeAnim,         // Bind opacity to animated value
+      }}
+    >
+      {props.children}
+    </Animated.View>
+  );
+}
+
+/* Screens */
+
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.homeScreen}>
       <Text style={styles.baseText}>Do you need a moment?</Text>
       <Text style={styles.baseText}>Come on in</Text>
       <Text style={styles.baseText}>This is...</Text>
-      <Text style={styles.titleText}>Rest</Text>
+      <FadeInView>
+        <Text style={styles.titleText}>Rest</Text>
+      </FadeInView>
       <Button
         title="Continue"
         onPress={() => navigation.navigate('Questionnaire')} />
@@ -114,6 +145,8 @@ function VideoSelect({ navigation }) {
     </SafeAreaView>
   );
 }
+
+/* Render Screens/Pages */
 
 const Stack = createNativeStackNavigator();
 
