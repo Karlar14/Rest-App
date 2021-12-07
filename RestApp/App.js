@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'react-native';
 import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,6 +15,7 @@ const FadeInView = (props) => {
       {
         toValue: 1,
         duration: 10000,
+        useNativeDriver: true,
       }
     ).start();
   }, [fadeAnim])
