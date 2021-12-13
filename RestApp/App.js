@@ -3,6 +3,7 @@ import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'r
 import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ScriptTag from 'react-script-tag';
 
 /* Animations */
 
@@ -116,6 +117,7 @@ function audioVisualizer({ navigation }) {
   return (
     <SafeAreaView>
       <Text>Audio Visualizer</Text>
+      <ScriptTag type="text/javascript" src="sketch.js" />
     </SafeAreaView>
   );
 }
