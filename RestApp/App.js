@@ -115,10 +115,10 @@ function Settings({ navigation }) {
 
 function audioVisualizer({ navigation }) {
   return (
-    <SafeAreaView>
+    <View>
       <Text>Audio Visualizer</Text>
-      <ScriptTag type="text/javascript" src="sketch.js" />
-    </SafeAreaView>
+      {/* <ScriptTag type="text/javascript" src="../sketch.js" /> */}
+    </View>
   );
 }
 
