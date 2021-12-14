@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'react-native';
+import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView, Alert } from 'react-native';
 import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -94,18 +94,17 @@ function Questionnaire({ navigation }) {
   return (
     <SafeAreaView style={styles.Questionnaire}>
       <Text>New User Onboarding</Text>
-      <View className='question-section'>
-        <View className='question-count'>
-          <Text>Question 1/{questions.length}</Text>
-        </View>
-        <View className='question-text'>
-          <Text>{questions[currentQuestion].questionText}</Text>
-        </View>
-      </View>
+      <Text>Question 1/{questions.length}</Text>
+      <Image
+          style={styles.imgs}
+          source={{uri: "http://www.brandstoryonline.com/wp-content/uploads/2017/04/rubin-vase.jpeg"}} />
+      <Text>{questions[currentQuestion].questionText}</Text>
 
       <View className='answer-section'>
         {questions[currentQuestion].answerOptions.map((answerOptions, index) => (
-          <Button title={answerOptions.answerText} />
+          <Button
+            title={answerOptions.answerText}
+            onPress={() => console.log("hello") } />
         ))}
       </View>
       <Button
@@ -244,4 +243,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  imgs: {
+    width: 200,
+    height: 200,
+  }
 });
