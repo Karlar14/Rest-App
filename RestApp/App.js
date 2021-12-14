@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, Text, View, Image, Button, SafeAreaView } from 'react-native';
 import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
@@ -33,6 +33,44 @@ const FadeInView = (props) => {
   );
 }
 
+/* Quiz Data + Logic */
+
+const questions = [
+  {
+    questionText: 'What does the picture represent?',
+    answerOptions: [
+      { answerText: 'Face' },
+      { answerText: 'Vase' },
+    ],
+  },
+  {
+    questionText: 'What is your favorite season?',
+    answerOptions: [
+      { answerText: 'Fall' },
+      { answerText: 'Spring' },
+      { answerText: 'Summer' },
+      { answerText: 'Winter' },
+    ],
+  },
+  {
+    questionText: 'How do you feel when looking at picture?',
+    answerOptions: [
+      { answerText: 'Calm' },
+      { answerText: 'Distracted' },
+      { answerText: 'Neither' },
+    ],
+  },
+  {
+    questionText: 'What is the first thing you do in the morning?',
+    answerOptions: [
+      { answerText: 'Check your phone' },
+      { answerText: 'Start your bathroom routine' },
+      { answerText: 'Make a cup of coffee' },
+      { answerText: 'Lay in bed longer' },
+    ],
+  },
+]
+
 /* Screens */
 
 function HomeScreen({ navigation }) {
@@ -52,9 +90,24 @@ function HomeScreen({ navigation }) {
 }
 
 function Questionnaire({ navigation }) {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   return (
     <SafeAreaView style={styles.Questionnaire}>
-      <Text>Questionnaire</Text>
+      <Text>New User Onboarding</Text>
+      <View className='question-section'>
+        <View className='question-count'>
+          <Text>Question 1/{questions.length}</Text>
+        </View>
+        <View className='question-text'>
+          <Text>{questions[currentQuestion].questionText}</Text>
+        </View>
+      </View>
+
+      <View className='answer-section'>
+        {questions[currentQuestion].answerOptions.map((answerOptions, index) => (
+          <Button title={answerOptions.answerText} />
+        ))}
+      </View>
       <Button
         title="Continue"
         onPress={() => navigation.navigate('LandingPage')} />
