@@ -91,6 +91,17 @@ function HomeScreen({ navigation }) {
 
 function Questionnaire({ navigation }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const handleAnswerButtonClick = (answerOption) => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      alert('you reached the end of the quiz');
+      navigation.navigate('LandingPage');
+    }
+  };
+
   return (
     <SafeAreaView style={styles.Questionnaire}>
       <Text>New User Onboarding</Text>
@@ -104,7 +115,7 @@ function Questionnaire({ navigation }) {
         {questions[currentQuestion].answerOptions.map((answerOptions, index) => (
           <Button
             title={answerOptions.answerText}
-            onPress={() => console.log("hello") } />
+            onPress={() => handleAnswerButtonClick()} />
         ))}
       </View>
       <Button
