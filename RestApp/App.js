@@ -185,7 +185,7 @@ function audioVisualizer({ navigation }) {
           ref={video}
           style={styles.video}
           source={{
-            uri: 'https://drive.google.com/file/d/1tzQeYLmeNQlxxhYSVNDT4xZVTnvXKioo/view?usp=sharing',
+            uri: 'https://rr6---sn-ab5sznle.c.drive.google.com/videoplayback?expire=1639624768&ei=_3e6YbWiPNHk1bYPtI-T2A8&ip=68.199.119.210&cp=QVRIQUdfU1dUSVhPOm50cWtiay1PakpMQm82N0lvM0RlalEyWXRCOW9TZWhCUmVyTVBITzBXTks&id=e662c5fe3c36e0e1&itag=18&source=webdrive&requiressl=yes&mh=_9&mm=32&mn=sn-ab5sznle&ms=su&mv=u&mvi=6&pl=22&ttl=transient&susc=dr&driveid=1tzQeYLmeNQlxxhYSVNDT4xZVTnvXKioo&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=226.835&lmt=1639606970443487&mt=1639609952&txp=0011224&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAJULQufqTdr_SYvKctrJpGMuSrsmRLUZVXikvzDjKF4EAiBdS4JUV9aTUP0UVh-FACIVPhyDOPIpEYF3KiJWSXGxcQ==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAPAY7jjCOmKoJQAPy2OHfU_UU6_OEM44oW7AoOxCrPGoAiEA04WHeD4G4MKUDRZ4qGE2Fj5xmiNVDfb__gNLPWzKQxc=&cpn=mhuQu01lK_YOI2T6&c=WEB_EMBEDDED_PLAYER&cver=1.20211210.00.01',
           }}
           useNativeControls
           resizeMode="contain"
