@@ -193,7 +193,7 @@ function audioVisualizer({ navigation }) {
         videoId={'2BL9q8bTBl8'}
         onChangeState={onStateChange}
       />
-      <Button title={playing ? 'pause' : 'play'} onPress={togglePlaying} />
+      <Button title={playing ? 'pause' : 'play'} onPress={togglePlaying}/>
     </View>
     </View>
   );
