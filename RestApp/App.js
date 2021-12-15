@@ -178,10 +178,22 @@ function Settings({ navigation }) {
 }
 
 function audioVisualizer({ navigation }) {
+  const visualizer = React.useRef(null);
+  const [status, setStatus] = React.useState({});
   return (
     <View>
       <Text>Audio Visualizer</Text>
-      {/* <ScriptTag type="text/javascript" src="../sketch.js" /> */}
+      <Video
+          ref={vizualizer}
+          style={styles.video}
+          source={{
+            uri: 'visualizer.mp4',
+          }}
+          useNativeControls
+          resizeMode="contain"
+          isLooping
+          onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
     </View>
   );
 }
