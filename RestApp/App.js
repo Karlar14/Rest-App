@@ -40,12 +40,11 @@ const FadeInView = (props) => {
 
 const questions = [
   {
-    questionText: 'What do you see in the picture?',
+    questionText: 'What does the picture represent?',
     answerOptions: [
       { answerText: 'Face' },
       { answerText: 'Vase' },
     ],
-    imageSource: 'http://www.brandstoryonline.com/wp-content/uploads/2017/04/rubin-vase.jpeg',
   },
   {
     questionText: 'What is your favorite season?',
@@ -55,7 +54,6 @@ const questions = [
       { answerText: 'Summer' },
       { answerText: 'Winter' },
     ],
-    imageSource: 'https://media.mixbook.com/images/templates/97_1_0_m.jpg',
   },
   {
     questionText: 'How do you feel when looking at picture?',
@@ -64,7 +62,6 @@ const questions = [
       { answerText: 'Distracted' },
       { answerText: 'Neither' },
     ],
-    imageSource: 'https://data.atomiyme.com/image/af98197470a00eac.jpg',
   },
   {
     questionText: 'What is the first thing you do in the morning?',
@@ -74,7 +71,6 @@ const questions = [
       { answerText: 'Make a cup of coffee' },
       { answerText: 'Lay in bed longer' },
     ],
-    imageSource: 'https://media.mixbook.com/images/templates/97_1_0_m.jpg',
   },
 ]
 
@@ -104,7 +100,7 @@ function Questionnaire({ navigation }) {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      alert('You reached the end of the Questionnaire');
+      alert('you reached the end of the quiz');
       navigation.navigate('LandingPage');
     }
   };
@@ -112,10 +108,10 @@ function Questionnaire({ navigation }) {
   return (
     <SafeAreaView style={styles.Questionnaire}>
       <Text>New User Onboarding</Text>
-      <Text>Question {currentQuestion + 1}/{questions.length}</Text>
+      <Text>Question 1/{questions.length}</Text>
       <Image
           style={styles.imgs}
-          source={{uri: questions[currentQuestion].imageSource}} />
+          source={{uri: "http://www.brandstoryonline.com/wp-content/uploads/2017/04/rubin-vase.jpeg"}} />
       <Text>{questions[currentQuestion].questionText}</Text>
 
       <View className='answer-section'>
@@ -125,6 +121,9 @@ function Questionnaire({ navigation }) {
             onPress={() => handleAnswerButtonClick()} />
         ))}
       </View>
+      <Button
+        title="Continue"
+        onPress={() => navigation.navigate('LandingPage')} />
     </SafeAreaView>
   );
   
@@ -264,7 +263,6 @@ const styles = StyleSheet.create({
   },
   Questionnaire: {
     flex: 1,
-    padding: 25,
     backgroundColor: '#fff',
     alignItems: "center",
     justifyContent: "center",
@@ -272,6 +270,5 @@ const styles = StyleSheet.create({
   imgs: {
     width: 200,
     height: 200,
-    padding: 25,
-  },
+  }
 });
