@@ -181,7 +181,16 @@ function audioVisualizer({ navigation }) {
   return (
     <View>
       <Text>Audio Visualizer</Text>
-      {/* <ScriptTag type="text/javascript" src="../sketch.js" /> */}
+      <Video
+          ref={video}
+          style={styles.video}
+          source={{
+            uri: 'https://drive.google.com/file/d/1tzQeYLmeNQlxxhYSVNDT4xZVTnvXKioo/view?usp=sharing',
+          }}
+          useNativeControls
+          resizeMode="contain"
+          isLooping
+          on
     </View>
   );
 }
