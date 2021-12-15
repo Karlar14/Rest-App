@@ -4,6 +4,9 @@ import { Video, Audio, AVPlaybackStatus } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ScriptTag from 'react-script-tag';
+import {View} from 'react-native';
+import YoutubePlayer from 'react-native-youtube-iframe';
+
 
 /* Animations */
 
@@ -183,17 +186,15 @@ function audioVisualizer({ navigation }) {
   return (
     <View>
       <Text>Audio Visualizer</Text>
-      <Video
-          ref={vizualizer}
-          style={styles.video}
-          source={{
-            uri: 'visualizer.mp4',
-          }}
-          useNativeControls
-          resizeMode="contain"
-          isLooping
-          onPlaybackStatusUpdate={status => setStatus(() => status)}
+      <View>
+      <YoutubePlayer
+        height={300}
+        play={true}
+        videoId={'2BL9q8bTBl8'}
+        onChangeState={onStateChange}
       />
+      <Button title={playing ? 'pause' : 'play'} onPress={togglePlaying} />
+    </View>
     </View>
   );
 }
